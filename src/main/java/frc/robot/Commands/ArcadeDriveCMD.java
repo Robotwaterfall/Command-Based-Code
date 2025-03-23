@@ -10,12 +10,12 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Subsystems.DriveSubsystem;
 
 
-public class ArcadeDrive extends Command {
+public class ArcadeDriveCMD extends Command {
 
   private final DriveSubsystem drivesub;
   private final Supplier <Double> speedFunction, turnFunction;
   
-  public ArcadeDrive(DriveSubsystem drivesub, Supplier <Double> speedFunction, Supplier <Double> turnFunction) {
+  public ArcadeDriveCMD(DriveSubsystem drivesub, Supplier <Double> speedFunction, Supplier <Double> turnFunction) {
     this.drivesub = drivesub;
     this.speedFunction = speedFunction;
     this.turnFunction = turnFunction;
