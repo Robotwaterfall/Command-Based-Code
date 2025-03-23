@@ -31,6 +31,8 @@ public class ArcadeDrive extends Command {
   
   @Override
   public void execute() {
+
+    //calculates the left and right motor speeds
     double realTimeSpeed = speedFunction.get();
     double realTimeTurn = turnFunction.get();
 
@@ -43,6 +45,7 @@ public class ArcadeDrive extends Command {
   @Override
   public void end(boolean interrupted) {
     System.out.println("Arcade drive has been interrupted");
+    //stops the motors from spinning
     drivesub.setMotors(0, 0);
   }
 

@@ -11,6 +11,10 @@ public final class Constants {
         public final static int kRightmastermotor2port = 3;
     }
 
-    public final static class OIConstants{}
+    public final static class OIConstants{
+        
+        //Controller port
+        public final static int kControllerPort = 0;
+    }
     
 }
