@@ -22,6 +22,7 @@ public class DriveSubsystem extends SubsystemBase {
 
   public DriveSubsystem() {}
 
+  //Sets the left and right motors
   public void setMotors(double leftspeed, double rightspeed){
     Leftmastermotor1.set(leftspeed);
     Leftmastermotor2.set(leftspeed);
