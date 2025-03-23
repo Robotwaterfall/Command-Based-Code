@@ -6,14 +6,20 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.Commands.ArcadeDrive;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.Commands.ArcadeDriveCMD;
+import frc.robot.Commands.ClimberCMD;
 import frc.robot.Constants.OIConstants;
+import frc.robot.Subsystems.ClimberSubsystem;
 import frc.robot.Subsystems.DriveSubsystem;
 
 public class RobotContainer {
 
   //Creates a new DriveSubsystem
   private final DriveSubsystem drivesub = new DriveSubsystem();
+
+  //Creates a new ClimberSubsystem
+  private final ClimberSubsystem climbSub = new ClimberSubsystem();
 
   //Creates a controller
   private final Joystick driveJoystick1 = new Joystick(OIConstants.kControllerPort);
@@ -22,12 +28,17 @@ public class RobotContainer {
     
     //get the axis of the controller to control motors
     drivesub.setDefaultCommand(
-          new ArcadeDrive(drivesub, () -> driveJoystick1.getRawAxis(1), () -> driveJoystick1.getRawAxis(3)));
+          new ArcadeDriveCMD(drivesub, () -> driveJoystick1.getRawAxis(1), () -> driveJoystick1.getRawAxis(3)));
 
     configureBindings();
   }
 
-  private void configureBindings() {}
+  private void configureBindings(){
+    //Button that makes the climber climb
+    new JoystickButton(driveJoystick1, OIConstants.kclimbButton).whileTrue(new ClimberCMD(climbSub, OIConstants.ksetSetpoint));
+    //Button that makes the climber un-climb
+    new JoystickButton(driveJoystick1, OIConstants.kunClimbButton).whileTrue(new ClimberCMD(climbSub, OIConstants.kunClimbsetpoint));
+  }
 
   public Command getAutonomousCommand() {
     return null;
