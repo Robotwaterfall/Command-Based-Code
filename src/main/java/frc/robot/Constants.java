@@ -31,6 +31,15 @@ public final class Constants {
         public final static double ksetIntakeSpeed = 1;
         //Speed for the motor to go out
         public final static double ksetOuttakeSpeed = -1;
+
+        //Button that makes the elevator go up
+        public final static int kElevatorGoUpbutton = 5;
+        //Button that makes the elevator return
+        public final static int kElevatorReturnbutton = 6;
+        //Setpoint to go to
+        public final static double kElevatorSetpoint = 5;
+        //Setpoint to return to
+        public final static double kElevatorReturn = 0;
     }
 
     public final static class ClimberConstants{
@@ -46,7 +55,21 @@ public final class Constants {
     }
 
     public final static class IntakeConstants{
+        //Motor port
+        //TODO: Change the Intake motor port
         public final static int kIntakeMotorPort = 6;
+    }
+
+    public final static class ElevatorConstants{
+        //Motor Ports
+        //TODO: Change the Elevator motor ports
+        public final static int kPrimaryElevatorMotorPort = 7;
+        public final static int kSecondaryElevatorMotorPort = 8;
+
+        //TODO: Tune PID for Elevator
+        public final static double kElevatorKp = 0;
+        public final static double kElevatorKi = 0;
+        public final static double kElevatorKd = 0;
     }
     
 }

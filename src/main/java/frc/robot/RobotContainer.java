@@ -9,10 +9,12 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Commands.ArcadeDriveCMD;
 import frc.robot.Commands.ClimberCMD;
+import frc.robot.Commands.ElevatorCMD;
 import frc.robot.Commands.IntakeCMD;
 import frc.robot.Constants.OIConstants;
 import frc.robot.Subsystems.ClimberSubsystem;
 import frc.robot.Subsystems.DriveSubsystem;
+import frc.robot.Subsystems.ElevatorSubsystem;
 import frc.robot.Subsystems.IntakeSubsystem;
 
 public class RobotContainer {
@@ -25,6 +27,9 @@ public class RobotContainer {
 
   //Creates a new IntakeSubsystem
   private final IntakeSubsystem intakesub = new IntakeSubsystem();
+
+  //Creates a new ElevatorSubsystem
+  private final ElevatorSubsystem elevatorsub = new ElevatorSubsystem();
 
   //Creates a controller
   private final Joystick driveJoystick1 = new Joystick(OIConstants.kControllerPort);
@@ -47,6 +52,10 @@ public class RobotContainer {
     new JoystickButton(driveJoystick1, OIConstants.kIntakeButton).whileTrue(new IntakeCMD(intakesub, OIConstants.ksetIntakeSpeed));
     //Button that makes the outtake start
     new JoystickButton(driveJoystick1, OIConstants.kOuttakeButton).whileTrue(new IntakeCMD(intakesub, OIConstants.ksetOuttakeSpeed));
+    //Button that makes the Elevator go up
+    new JoystickButton(driveJoystick1, OIConstants.kElevatorGoUpbutton).whileTrue(new ElevatorCMD(elevatorsub, OIConstants.kElevatorSetpoint));
+    //Button that makes the Elevator go down back to its original position
+    new JoystickButton(driveJoystick1, OIConstants.kElevatorReturnbutton).whileTrue(new ElevatorCMD(elevatorsub, OIConstants.kElevatorReturn));
   }
 
   public Command getAutonomousCommand() {
