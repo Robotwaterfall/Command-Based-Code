@@ -19,10 +19,18 @@ public final class Constants {
         //Button to activate the climber (TO CLIMB))
         public final static int kclimbButton = 1;
         public final static double ksetSetpoint = 125;
-
         //Button to activate the unclimb (TO UN-CLIMB)
         public final static int kunClimbButton = 2;
-        public final static int kunClimbsetpoint = 0;
+        public final static double kunClimbsetpoint = 0;
+
+        //Button to activate the motor to go in
+        public final static int kIntakeButton = 3;
+        //Button to reverse the intake to spit coral out
+        public final static int kOuttakeButton = 4;
+        //Speed for the motor to go in
+        public final static double ksetIntakeSpeed = 1;
+        //Speed for the motor to go out
+        public final static double ksetOuttakeSpeed = -1;
     }
 
     public final static class ClimberConstants{
