@@ -16,7 +16,7 @@ public class IntakeSubsystem extends SubsystemBase {
   private final SparkMax IntakeMotor = new SparkMax(IntakeConstants.kIntakeMotorPort, MotorType.kBrushless);
 
   public void setMotors(Double speed){
-    IntakeMotor.set(IntakeConstants.kIntakeMotorSpeed);
+    IntakeMotor.set(speed);
   }
 
    
